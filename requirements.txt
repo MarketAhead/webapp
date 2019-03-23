@@ -13,3 +13,4 @@ alpha_vantage==2.1.0
 dash_core_components==0.43.1
 pytrends==4.4.0
 redis==3.2.1
+gunicorn==19.0.0 
