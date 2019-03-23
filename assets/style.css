@@ -1,0 +1,30 @@
+._dash-undo-redo {
+	display: none;
+}
+
+._dash-loading {
+	display: none;
+}
+
+.btn {
+	border-radius:0.25rem;
+}
+
+.bg-light {
+    background-color: #fff !important;
+}
+
+.jumbotron {
+    background-color: #fff;
+    padding: 35px;
+}
+.display-4 {
+	font-size:46px;
+}
+
+.ticker-header{
+	padding-top:20px;
+	font-size:36px;
+}
+
+

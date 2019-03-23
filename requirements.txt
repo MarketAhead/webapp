@@ -1,0 +1,17 @@
+pandas==0.24.1
+dash_table==3.4.0
+TA_Lib==0.4.17
+requests==2.21.0
+Flask_Caching==1.5.0
+dash_bootstrap_components==0.3.4
+numpy==1.16.1
+plotly==3.6.1
+dash_html_components==0.13.5
+dash==0.37.0
+fredapi==0.4.2
+airtable==0.3.1
+alpha_vantage==2.1.0
+dash_core_components==0.43.1
+pytrends==4.4.0
+talib==0.1.1
+redis==3.2.1
