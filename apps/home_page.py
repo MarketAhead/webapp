@@ -5,7 +5,7 @@ import random
 import os
 
 from app import app,cache
-from airtable import Airtable
+import airtable
 
 TIMEOUT = 604800
 
@@ -13,8 +13,8 @@ TIMEOUT = 604800
 def get_records():
     base_key = 'appJrhutVamnl10Bi'
     table_name = 'US Stocks'
-    airtable = Airtable(base_key, table_name, api_key=os.environ['AIRTABLE_KEY'])
-    records = airtable.get_all()
+    air_table = airtable.Airtable(base_key, table_name, api_key=os.environ['AIRTABLE_KEY'])
+    records = air_table.get_all()
 
     random.shuffle(records)
 

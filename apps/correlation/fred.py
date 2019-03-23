@@ -10,8 +10,7 @@ TIMEOUT_LONG = 604800
 from fredapi import Fred
 fred = Fred(api_key=os.environ['FRED_KEY'])
 
-from airtable import Airtable
-
+import airtable
 
 @cache.memoize(timeout=TIMEOUT_LONG)
 def get_records():
@@ -19,8 +18,8 @@ def get_records():
 	base_key = 'appIZ52SrHcih9DLC'
 	table_name = 'Fred'
 
-	airtable = Airtable(base_key, table_name, api_key=apiKey)
-	return airtable.get_all()
+	air_table = airtable.Airtable(base_key, table_name, api_key=apiKey)
+	return air_table.get_all()
 
 def get_fred_series():
 
