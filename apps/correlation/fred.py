@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-import config, os
+import os
 from app import app,cache
 
 TIMEOUT = 86400

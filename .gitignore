@@ -1,6 +1,7 @@
 venv
 *.pyc
 .DS_Store
+.bash_profile
 .env
 config.py
 cache-directory/

@@ -4,7 +4,7 @@ import numpy as np
 from alpha_vantage.cryptocurrencies import CryptoCurrencies
 from alpha_vantage.timeseries import TimeSeries
 
-import config, os
+import os
 from apps.prices.crypto import crypto_tickers
 
 from datetime import datetime,timedelta
