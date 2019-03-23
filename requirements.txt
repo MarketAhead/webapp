@@ -1,7 +1,6 @@
 pandas==0.24.1
 dash_table==3.4.0
 talib==0.1.1
-TA_Lib==0.4.17
 requests==2.21.0
 Flask_Caching==1.5.0
 dash_bootstrap_components==0.3.4
