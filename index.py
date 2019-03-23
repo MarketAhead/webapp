@@ -8,6 +8,8 @@ from apps import home_page, error_page
 
 import re
 
+server = app.server
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     navbar.navbar,
