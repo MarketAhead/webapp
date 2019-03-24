@@ -8,7 +8,7 @@ from app import app,cache
 import airtable
 
 TIMEOUT = 604800
-LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/LOGOS/'
+LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553413718/LOGOS/'
 
 @cache.memoize(timeout=TIMEOUT)
 def get_records():

@@ -61,7 +61,6 @@
     width: 10%; 
     float:left;
     min-height: 122px;
-    max-height: 126px;
     padding:2px;
 }
 
@@ -76,14 +75,13 @@
 @media(max-width: 600px) {
     .card {
         width: 25%;
-        min-height: 90px;
+        min-height: 88px;
         float:left;
     }
     .jumbotron {
         padding-bottom:15px;
     }
 }
-
 
 
 img.card-img {
