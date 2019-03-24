@@ -96,3 +96,9 @@ opacity:0.65;
 transition: 0.5s ease;
 }
     
+.previous-page{
+    width:50%;
+}
+.next-page{
+    width:50%;
+}
