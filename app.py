@@ -11,7 +11,12 @@ app = Dash(__name__, external_stylesheets=external_stylesheets, static_folder='s
             {
                 'name': 'description',
                 'content': 'Analyze price trends, correlations, and more. Supports most stocks and top cryptos.'
-            }]
+            },
+            {
+            	'name':'viewport',
+            	'content':'width=device-width, initial-scale=1.0'
+            }
+            ]
         )
 
 app.title = 'Market Ahead'
