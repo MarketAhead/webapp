@@ -56,4 +56,42 @@
     }
 }
 
+
+.card {
+    width: 10%; 
+    float:left;
+    min-height: 122px;
+    max-height: 126px;
+    padding:2px;
+}
+
+@media(max-width: 1000px) {
+    .card {
+        width: 20%;
+        min-height: 90px;
+        float:left;
+    }
+}
+
+@media(max-width: 600px) {
+    .card {
+        width: 25%;
+        min-height: 90px;
+        float:left;
+    }
+}
+
+
+
+img.card-img {
+width: 100%;
+opacity:1;
+transition: 1s ease;
+}
+
+img.card-img:hover{
+width: 100%;
+opacity:0.7;
+transition: 1s ease;
+}
     

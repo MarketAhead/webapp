@@ -8,7 +8,7 @@ from app import app,cache
 import airtable
 
 TIMEOUT = 604800
-LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_300,q_80/v1553390861/LOGOS/'
+LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/LOGOS/'
 
 @cache.memoize(timeout=TIMEOUT)
 def get_records():
@@ -31,6 +31,7 @@ def get_card(ticker, logo_url):
                 ], style={"padding": "0"}
             ),
         ],
+        className='',
         style={"border":"0", "margin":"0"}
     )
 
@@ -50,7 +51,7 @@ def get_home():
 
         if index % 12 == 0:
             if len(cards) == 12:
-                this = dbc.CardDeck(cards)
+                this = html.Div(cards, className='grid-row')
                 deck.append(this)
             cards = []
 

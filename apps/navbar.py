@@ -26,14 +26,18 @@ navbar = dbc.Navbar(
                 ),
                 href="/",
             ),
-            dbc.NavbarToggler(id="navbar-toggler2"),
-            dbc.Collapse(
-                dbc.Nav(
+
+            dbc.Nav(
                     [search], className="ml-auto", navbar=True
-                ),
-                id="navbar-collapse2",
-                navbar=True,
             ),
+            # dbc.NavbarToggler(id="navbar-toggler2"),
+            # dbc.Collapse(
+            #     dbc.Nav(
+            #         [search], className="ml-auto", navbar=True
+            #     ),
+            #     id="navbar-collapse2",
+            #     navbar=True,
+            # ),
         ]
     ),
     color="light",
@@ -41,16 +45,16 @@ navbar = dbc.Navbar(
     className="border-bottom",
 )
 
-# we use a callback to toggle the collapse on small screens
-def toggle_navbar_collapse(n, is_open):
-    if n:
-        return not is_open
-    return is_open
+# # we use a callback to toggle the collapse on small screens
+# def toggle_navbar_collapse(n, is_open):
+#     if n:
+#         return not is_open
+#     return is_open
 
-# the same function (toggle_navbar_collapse) is used in all three callbacks
-for i in [1, 2, 3]:
-    app.callback(
-        Output(f"navbar-collapse{i}", "is_open"),
-        [Input(f"navbar-toggler{i}", "n_clicks")],
-        [State(f"navbar-collapse{i}", "is_open")],
-    )(toggle_navbar_collapse)
+# # the same function (toggle_navbar_collapse) is used in all three callbacks
+# for i in [1, 2, 3]:
+#     app.callback(
+#         Output(f"navbar-collapse{i}", "is_open"),
+#         [Input(f"navbar-toggler{i}", "n_clicks")],
+#         [State(f"navbar-collapse{i}", "is_open")],
+#     )(toggle_navbar_collapse)
