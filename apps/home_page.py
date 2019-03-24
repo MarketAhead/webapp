@@ -16,8 +16,7 @@ def get_records():
     table_name = 'US Stocks'
     air_table = airtable.Airtable(base_key, table_name, api_key=os.environ['AIRTABLE_KEY'])
     records = air_table.get_all()
-    random.shuffle(records)
-    
+
     return records
 
 def get_card(ticker, logo_url):
@@ -39,6 +38,9 @@ def get_home():
 
     deck = []
     cards = []
+    
+    #Shuffle records
+    random.shuffle(records)
     
     records = get_records()
 
