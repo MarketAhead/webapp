@@ -47,10 +47,17 @@ def trend_traces(df, keywords, cdata):
 def get_layout(start, end, title, yaxis2_title):
 	return go.Layout(
 	title = title, 
-    yaxis= dict(title='Price', side='left'),
-    yaxis2= dict(title=yaxis2_title,overlaying='y',side='right'),
-    xaxis= dict(range=[start,end], rangeslider=dict(visible=False)),
+    yaxis= dict(title='Price', side='left', zeroline=False, showline=False),
+    yaxis2= dict(title=yaxis2_title,overlaying='y',side='right', zeroline=False, showline=False),
+    xaxis= dict(range=[start,end], rangeslider=dict(visible=False), zeroline=False, showline=False),
     legend= dict(orientation='h', y=1, x=0, yanchor='bottom'),
+    margin=go.layout.Margin(
+        l=50,
+        r=50,
+        b=100,
+        t=100,
+        pad=0
+    ),
     colorway=colorway
 	)
 

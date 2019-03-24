@@ -59,22 +59,15 @@ windowselector = dcc.Slider(
 
 options = dbc.Container([                   
                         dbc.Row([
-
-                            dbc.Col([timeres], width=5),
-                            dbc.Col([fractal], width=5),
-                            dbc.Col([dateselector], width=2)
-
+                            dbc.Col([timeres], className="col-sm-5"),
+                            dbc.Col([fractal], className="col-sm-5"),
+                            dbc.Col([dateselector], className="col-sm-2")
                             ]),
                         dbc.Row([
-                            dbc.Col([windowselector], width=12)
+                            dbc.Col([windowselector], className="col-sm-12")
                             ]),
 
-                            #         dbc.Col[(fractal)], dcc.Col(timeres),dcc.Col(dateselector)]),
                         html.Br(),
-                            # html.P(windowselector),
-
-                            # html.P(timeres),
-                            # html.P(dateselector)
 
                         ], id="filter-options", className="center-text")
 

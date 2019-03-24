@@ -6,7 +6,10 @@ from app import app
 
 LOGO = '/static/marketahead_logo.png'
 
-search = dbc.Input(type="text", placeholder="Ticker", id="search", style={"border-radius":".25rem", "width":"200px"})
+search = dbc.Input(type="text", placeholder="Ticker", id="search", 
+                   style={"border-radius":".25rem"},
+                   className= 'full-width'
+                   )
 
 navbar = dbc.Navbar(
     dbc.Container(

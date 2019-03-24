@@ -15,7 +15,7 @@ from apps.correlation.corr import Correlation
 from apps.correlation.geo import geo
 
 
-gtrend_input = dbc.Input(type="text", placeholder="Google™ Trend Keyword", id="gtrend")
+gtrend_input = dbc.Input(type="text", placeholder="Google™ Trend Keyword", id="gtrend", style={"border-radius":".25rem"})
 
 gtrend_geo =  dbc.FormGroup(
             [

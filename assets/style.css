@@ -27,4 +27,18 @@
 	font-size:36px;
 }
 
+@media(max-width: 768px) {
+    button.full-width {
+        width: 100%; 
+        margin-bottom: 5px; 
+    }
+}
 
+@media(max-width: 768px) {
+    input.full-width {
+        width: 100%; 
+        margin-top: 10px; 
+    }
+}
+
+    

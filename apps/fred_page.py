@@ -29,7 +29,7 @@ fred_dd =  dbc.FormGroup(
             ]
             )
 
-fred_search = dbc.Input(type="text", placeholder="FRED© Economic Data Search", id="fsearch")
+fred_search = dbc.Input(type="text", placeholder="FRED© Economic Data Search", id="fsearch", style={"border-radius":".25rem"})
 
 
 def get_page(ticker):

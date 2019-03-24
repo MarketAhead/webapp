@@ -27,7 +27,8 @@ def get_layout(annotations):
     xaxis= dict(zeroline=False, rangeslider=dict(visible=False)),
 
 	annotations=annotations,
-	showlegend=False,    
+	showlegend=False,
+    margin=go.layout.Margin(l=50,r=50,b=80,t=30,pad=0),    
 	colorway=colorway
 	)
 

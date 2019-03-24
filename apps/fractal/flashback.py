@@ -119,7 +119,7 @@ def get_layout_main(ticker, annotations, ytitle, ytitle2):
                         spikecolor = "#999",
                         spikemode = "across"
                         ),
-
+            margin=go.layout.Margin(l=50,r=0,b=50,t=30,pad=0), 
             showlegend=False,
             annotations=annotations,
             colorway=colorway
@@ -131,6 +131,7 @@ def get_layout(ticker, annotations, ytitle, xtitle):
             yaxis= dict(title=ytitle, side='left', zeroline=False),
             xaxis= dict(title=xtitle, zeroline=False, rangeslider=dict(visible=False)),
             legend= dict(orientation='h', y=1, x=0, yanchor='bottom'),
+            margin=go.layout.Margin(l=50,r=50,b=100,t=0,pad=0), 
             annotations=annotations,
             colorway=colorway
             )
@@ -203,15 +204,17 @@ def generate_flashback(ticker, window, timeRes, fractal, setDate):
             fig.append_trace(candlestick_trace(corr_data, name, 'count', 'y'), i+1, 1)
 
         
-        fig['layout'].update(title=filtert_text[timeRes]+' Candlesticks',
-                            yaxis= dict(title='', side='left', zeroline=False,),
+        fig['layout'].update(title='',
+                            yaxis= dict(title='', side='left', zeroline=False),
                             xaxis= dict(title='', zeroline=False, rangeslider=dict(visible=False),
                             showspikes = True, 
                             spikethickness = 1,
                             spikedash = "solid",
                             spikecolor = "#999",
-                            spikemode = "across"
+                            spikemode = "across",
                             ),
+                            legend= dict(orientation='h', y=1, x=0, yanchor='bottom'),
+                            margin=go.layout.Margin(l=50,r=50,b=100,t=0,pad=0), 
                             height=700
                             )
 
@@ -233,16 +236,23 @@ def generate_flashback(ticker, window, timeRes, fractal, setDate):
         corr_plots3.append(data)
         corr_plots3.append(main_subplot)
 
-        layout_main = get_layout_main(ticker, annotations, 'RSI', '')
-        layout_corr = get_layout(filtert_text[timeRes]+' Cumulative % Change ('+ str(window) +' '+filtert[timeRes]+' Period)', [], 'Cumulative % Change', filtert[timeRes]+'s')
-        layout_corr2 = get_layout(filtert_text[timeRes]+' % Change', [], '%', filtert[timeRes]+'s')
+        cumulative_title = filtert_text[timeRes]+' Cumulative % Change ('+ str(window) +' '+filtert[timeRes]+' Period)'
+        change_title = filtert_text[timeRes]+' % Change'
+        candlestick_title = filtert_text[timeRes]+' Candlesticks'
 
+
+        layout_main = get_layout_main(ticker, annotations, 'RSI', 'Price')
+        layout_corr = get_layout('', [], 'Cumulative % Change', filtert[timeRes]+'s')
+        layout_corr2 = get_layout('', [], '%', filtert[timeRes]+'s')
 
         body = dbc.Container(
                         [
                             dcc.Graph(figure=dict(data=corr_plots3, layout=layout_main), id="corrgraph_main"),  
+                            html.H4(cumulative_title, className="text-center"),
                             dcc.Graph(figure=dict(data=corr_plots, layout=layout_corr), id="corrgraph"),
+                            html.H4(change_title, className="text-center"),
                             dcc.Graph(figure=dict(data=corr_plots2, layout=layout_corr2), id="corrgraph2"),
+                            html.H4(candlestick_title, className="text-center"),
                             dcc.Graph(figure=fig, id="corrgraph_candle_compare")
                         ]
                       )

@@ -35,12 +35,12 @@ def get_sub_navbar(ticker):
                             html.H1(title, className="text-center ticker-header", style={'display': 'inline-block'}),
                         ], className="text-center", style={'margin':'0 auto'}),
 
-                html.Div(
+                dbc.Container(
                         [
-                        dcc.Link(dbc.Button("Economic Data", color="secondary", outline=True, className="mr-2", id="correlation"), href="/c/"+ticker),
-                        dcc.Link(dbc.Button("Performance", color="secondary", outline=True, className="mr-2", id="performance"), href="/p/"+ticker),
-                        dcc.Link(dbc.Button("Fractals", color="secondary", outline=True, className="mr-2", id="flashback"), href="/f/"+ticker),
-                        dcc.Link(dbc.Button("Trends", color="secondary", outline=True, className="mr-2", id="correlation"), href="/g/"+ticker),
-                        ], className="mb-5 text-center")
+                        dcc.Link(dbc.Button("Economic Data", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/c/"+ticker),
+                        dcc.Link(dbc.Button("Performance", color="secondary", outline=True, className="mr-2 full-width", id="performance"), href="/p/"+ticker),
+                        dcc.Link(dbc.Button("Fractals", color="secondary", outline=True, className="mr-2 full-width", id="flashback"), href="/f/"+ticker),
+                        dcc.Link(dbc.Button("Trends", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/g/"+ticker),
+                        ], className="mb-3 text-center")
                 ])
 
