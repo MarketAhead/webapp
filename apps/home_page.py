@@ -60,15 +60,15 @@ def get_home():
             html.H1("Market Ahead", className="display-4"),
 
             html.Div([
-                html.Div("Analyze price trends, correlations, and more."),
+                html.Div("Analyze price trends, correlations, and more. Explore a company below or search for one."),
             ], className="lead"),
             html.Div(
                 "Supports most stocks and top cryptos.",
-                className="lead",
+                className="support",
             ),
             html.Div([html.A("Read the FAQ", href='https://medium.com/@marketahead.com/app-faq-9422d296d370', target="_blank"),
                     html.A("Twitter", href='https://twitter.com/marketahead/', target="_blank", className="ml-3"),
                     html.A("Medium", href='https://medium.com/@marketahead.com/', target="_blank", className="ml-3")
-                     ])
+                     ], className="lead bold-link")
 
-        ], className="lead text-center"), dbc.Container(deck)
+        ], className="text-center"), dbc.Container(deck)

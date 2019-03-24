@@ -22,6 +22,21 @@
 	font-size:46px;
 }
 
+.lead {
+    font-weight:300;
+}
+
+.support {
+    font-weight:300;
+    font-size:1.15rem;
+    font-style: italic;
+}
+
+.bold-link {
+    margin-top: 15px;
+    font-weight:500;
+}
+
 .ticker-header{
 	padding-top:20px;
 	font-size:36px;
