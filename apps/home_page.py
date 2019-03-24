@@ -26,7 +26,7 @@ def get_card(ticker, logo_url):
                 [
                     dbc.CardLink(dbc.CardImg(
                                             src=(logo_url),
-                                            style={"width": "100%", "height": "100%"}
+                                            style={"width": "100%"}
                      ), href="c/"+ticker) 
                 ], style={"padding": "0"}
             ),
