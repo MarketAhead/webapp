@@ -44,7 +44,8 @@ def get_home():
     for index, record in enumerate(records):
 
         if record['fields']['Ticker']:
-            card = get_card(record['fields']['Ticker'], LOGO+ticker+'.png')
+            ticker = record['fields']['Ticker']
+            card = get_card(ticker, LOGO+ticker+'.png')
             cards.append(card)
 
         if index % 12 == 0:
