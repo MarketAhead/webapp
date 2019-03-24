@@ -8,7 +8,7 @@ from app import app,cache
 import airtable
 
 TIMEOUT = 604800
-LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553413718/LOGOS/'
+LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553416457/LOGOS/'
 
 @cache.memoize(timeout=TIMEOUT)
 def get_records():
@@ -25,7 +25,8 @@ def get_card(ticker, logo_url):
             dbc.CardBody(
                 [
                     dbc.CardLink(dbc.CardImg(
-                                            src=(logo_url)
+                                            src=(logo_url),
+                                            style={"width": "100%", "height": "100%"}
                      ), href="c/"+ticker) 
                 ], style={"padding": "0"}
             ),
