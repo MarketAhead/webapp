@@ -38,12 +38,12 @@ def get_home():
 
     deck = []
     cards = []
-    
+
+    records = get_records()
+
     #Shuffle records
     random.shuffle(records)
     
-    records = get_records()
-
     for index, record in enumerate(records):
 
         if record['fields']['Ticker']:
