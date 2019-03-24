@@ -7,7 +7,7 @@ import requests
 from apps.prices.crypto import crypto_tickers
 
 CRYPTO_LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/v1553236208/CRYPTO%20LOGOS/'
-LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/v1549395052/LOGOS/'
+LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/v1553390861/LOGOS/'
 def get_sub_navbar(ticker):
 
     logo = '' 
