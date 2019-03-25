@@ -12,6 +12,7 @@ def get_sub_navbar(ticker):
 
     logo = '' 
     ticker = ticker.replace('%5E', '')
+    ticker = ticker.replace('^', '')
     title = ticker
 
     if ticker in crypto_tickers.keys():
