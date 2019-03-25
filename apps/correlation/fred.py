@@ -10,7 +10,7 @@ TIMEOUT_LONG = 604800
 from fredapi import Fred
 fred = Fred(api_key=os.environ['FRED_KEY'])
 
-import airtable
+from airtable import airtable
 
 @cache.memoize(timeout=TIMEOUT_LONG)
 def get_records():

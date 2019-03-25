@@ -5,10 +5,10 @@ import random
 import os
 
 from app import app,cache
-import airtable
+from airtable import airtable
 
 TIMEOUT = 604800
-LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553418030/LOGOS/'
+LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553507334/LOGOS/'
 
 @cache.memoize(timeout=TIMEOUT)
 def get_records():
@@ -52,11 +52,14 @@ def get_home():
             card = get_card(ticker, LOGO+ticker+'.png')
             cards.append(card)
 
-        if index % 12 == 0:
-            if len(cards) == 12:
+        if index % 10 == 0:
+            if len(cards) == 10:
                 this = html.Div(cards, className='grid-row')
                 deck.append(this)
             cards = []
+
+        if len(deck) == 10:
+            break
 
 
     return dbc.Jumbotron(
