@@ -11,6 +11,7 @@ LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/L
 def get_sub_navbar(ticker):
 
     logo = '' 
+    ticker = ticker.replace('%5E', '')
     title = ticker
 
     if ticker in crypto_tickers.keys():

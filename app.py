@@ -1,8 +1,8 @@
 from dash import Dash
 from flask_caching import Cache
-
 import dash_bootstrap_components as dbc
 import os
+from flask import request
 
 external_stylesheets = [dbc.themes.COSMO]
 
@@ -31,3 +31,10 @@ cache = Cache(app.server, config={
     'CACHE_REDIS_URL': os.environ['REDIS_URL'] 
 })
 
+
+@server.before_request
+def enforceHttpsInHeroku():
+    if request.headers.get('X-Forwarded-Proto') == 'http':
+        url = request.url.replace('http://', 'https://', 1)
+        code = 301
+        return redirect(url, code=code)
