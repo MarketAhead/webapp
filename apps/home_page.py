@@ -5,7 +5,7 @@ import random
 import os
 
 from app import app,cache
-from airtable import airtable
+import airtable
 
 TIMEOUT = 604800
 LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553507334/LOGOS/'
@@ -14,7 +14,7 @@ LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v
 def get_records():
     base_key = 'appJrhutVamnl10Bi'
     table_name = 'US Stocks'
-    air_table = airtable.Airtable(base_key, table_name, api_key=os.environ['AIRTABLE_KEY'])
+    air_table = airtable.Airtable(base_key, table_name)
     records = air_table.get_all()
 
     return records
