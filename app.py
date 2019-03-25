@@ -4,6 +4,8 @@ import dash_bootstrap_components as dbc
 import os
 from flask import request, redirect
 
+from urllib.parse import urlparse, urlunparse
+
 external_stylesheets = [dbc.themes.COSMO]
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, static_folder='static', 
@@ -34,7 +36,14 @@ cache = Cache(app.server, config={
 
 @server.before_request
 def enforceHttpsInHeroku():
+
+    urlparts = urlparse(request.url)
+    
+    if urlparts.netloc == 'marketahead.com':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'www.marketahead.com'
+        return redirect(urlunparse(urlparts_list), code=301)
+    
     if request.headers.get('X-Forwarded-Proto') == 'http':
         url = request.url.replace('http://', 'https://', 1)
-        code = 301
-        return redirect(url, code=code)
+        return redirect(url, code=301)
