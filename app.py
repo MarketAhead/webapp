@@ -39,12 +39,12 @@ def enforceHttpsInHeroku():
 
     urlparts = urlparse(request.url)
 
+    print('header',request.headers.get('X-Forwarded-Proto'))
     if request.headers.get('X-Forwarded-Proto') == 'http':
         url = request.url.replace('http://', 'https://', 1)
         return redirect(url, code=301)
 
-    print(urlparts)
-
-    if request.headers.get('X-Forwarded-Proto') == 'https' and urlparts.netloc == 'marketahead.com':
+    print('urlparts',urlparts)
+    if urlparts.netloc == 'marketahead.com' and urlparts.scheme == 'http':
         url = request.url.replace('marketahead.com', 'www.marketahead.com', 1)
         return redirect(url, code=301)
