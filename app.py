@@ -2,7 +2,7 @@ from dash import Dash
 from flask_caching import Cache
 import dash_bootstrap_components as dbc
 import os
-from flask import request
+from flask import request, redirect
 
 external_stylesheets = [dbc.themes.COSMO]
 
