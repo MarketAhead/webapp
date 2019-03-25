@@ -13,16 +13,15 @@ from apps.sub_navbar import get_sub_navbar
 
 from apps.correlation.corr import Correlation
 from apps.correlation.geo import geo
-from apps.correlation.fred import get_fred_series, search_fred
-
-fred_dict = get_fred_series()
+from apps.correlation.fred import search_fred
+from apps.correlation.fred_default import fred_dd_values
 
 fred_dd =  dbc.FormGroup(
             [
                 dcc.Dropdown(
                     id="fred",
                     options=[
-                        {"label": i, "value": col} for col, i in fred_dict.items()
+                        {"label": i, "value": col} for col, i in fred_dd_values.items()
                     ],
                     value="SP500",
                 ),

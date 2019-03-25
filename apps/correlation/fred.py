@@ -10,28 +10,6 @@ TIMEOUT_LONG = 604800
 from fredapi import Fred
 fred = Fred(api_key=os.environ['FRED_KEY'])
 
-from airtable import airtable
-
-@cache.memoize(timeout=TIMEOUT_LONG)
-def get_records():
-	apiKey = os.environ['AIRTABLE_KEY']
-	base_key = 'appIZ52SrHcih9DLC'
-	table_name = 'Fred'
-
-	air_table = airtable.Airtable(base_key, table_name, api_key=apiKey)
-	return air_table.get_all()
-
-def get_fred_series():
-
-	fred_dict = {}
-	records = get_records()
-
-	for record in records:
-		fred_dict.update({record['fields']['Code']:record['fields']['Indicator']})
-
-	sorted_fred_dict = {k: v for k, v in sorted(fred_dict.items(), key=lambda x: x[1])}
-	return sorted_fred_dict
-
 def get_fred_series_units(series_id):
 
 	try:
