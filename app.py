@@ -38,12 +38,14 @@ cache = Cache(app.server, config={
 def enforceHttpsInHeroku():
 
     urlparts = urlparse(request.url)
-    
-    if urlparts.netloc == 'marketahead.com':
-        urlparts_list = list(urlparts)
-        urlparts_list[1] = 'www.marketahead.com'
-        return redirect(urlunparse(urlparts_list), code=301)
+    print(urlparts)
     
     if request.headers.get('X-Forwarded-Proto') == 'http':
         url = request.url.replace('http://', 'https://', 1)
+
+        if urlparts.netloc == 'marketahead.com':
+            print('here')
+            url = request.url.replace('marketahead.com', 'www.marketahead.com', 1)
+
+
         return redirect(url, code=301)
