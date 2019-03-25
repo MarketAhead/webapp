@@ -5,6 +5,7 @@ import dash_html_components as html
 import requests
 
 from apps.prices.crypto import crypto_tickers
+from apps.home.home_items import home
 
 CRYPTO_LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/CRYPTO%20LOGOS/'
 LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/LOGOS/'
@@ -13,15 +14,21 @@ def get_sub_navbar(ticker):
     logo = '' 
     ticker = ticker.replace('%5E', '')
     ticker = ticker.replace('^', '')
-    title = ticker
 
+    #CRYPTO
     if ticker in crypto_tickers.keys():
         if ticker != crypto_tickers[ticker]:
             title = crypto_tickers[ticker] + ' - ' + ticker
 
         logo = CRYPTO_LOGO+ticker+'.png'
 
+    #STOCKS
     else:
+        if ticker in home.keys():
+            title = home[ticker] + ' - ' + ticker
+        else:
+            title = ticker 
+
         logo = LOGO+ticker+'.png'
 
     #Check if Logo exists
