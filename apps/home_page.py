@@ -5,27 +5,18 @@ import random
 import os
 
 from app import app,cache
-import airtable
+from apps.home.home_items import home
 
-TIMEOUT = 604800
 LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_200,q_80/v1553507334/LOGOS/'
 
-@cache.memoize(timeout=TIMEOUT)
-def get_records():
-    base_key = 'appJrhutVamnl10Bi'
-    table_name = 'US Stocks'
-    air_table = airtable.Airtable(base_key, table_name)
-    records = air_table.get_all()
-
-    return records
-
-def get_card(ticker, logo_url):
+def get_card(ticker, name, logo_url):
     return dbc.Card(
         [
             dbc.CardBody(
                 [
                     dbc.CardLink(dbc.CardImg(
                                             src=(logo_url),
+                                            title= name,
                                             style={"width": "100%"}
                      ), href="c/"+ticker) 
                 ], style={"padding": "0"}
@@ -40,17 +31,17 @@ def get_home():
     deck = []
     cards = []
 
-    records = get_records()
-
     #Shuffle records
-    random.shuffle(records)
-    
-    for index, record in enumerate(records):
+    keylist = []
+    keylist.extend(iter(home.keys())) 
+    random.shuffle(keylist)
+    print('keylist', keylist)
 
-        if record['fields']['Ticker']:
-            ticker = record['fields']['Ticker']
-            card = get_card(ticker, LOGO+ticker+'.png')
-            cards.append(card)
+    
+    for index, key in enumerate(keylist):
+        ticker = key
+        card = get_card(ticker, home[key], LOGO+ticker+'.png')
+        cards.append(card)
 
         if index % 10 == 0:
             if len(cards) == 10:
@@ -67,7 +58,7 @@ def get_home():
             html.H1("Market Ahead", className="display-4"),
 
             html.Div([
-                html.Div("Analyze price trends, correlations, and more. Explore a company below or search for one."),
+                html.Div("Analyze price trends, correlations, and more. Explore below or search."),
             ], className="lead"),
             html.Div(
                 "Supports most stocks and top cryptos.",
