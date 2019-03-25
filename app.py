@@ -37,11 +37,6 @@ cache = Cache(app.server, config={
 @server.before_request
 def enforceHttpsInHeroku():
 
-    urlparts = urlparse(request.url)
-
-    print('header',request.headers.get('X-Forwarded-Proto'))
-    print('urlparts',urlparts)
-
     if request.headers.get('X-Forwarded-Proto') == 'http':
         url = request.url.replace('http://', 'https://', 1)
 
@@ -51,7 +46,3 @@ def enforceHttpsInHeroku():
         return redirect(url, code=301)
 
 
-    if urlparts.netloc == 'marketahead.com' and request.headers.get('X-Forwarded-Proto') == 'https':
-        url = request.url.replace('marketahead.com', 'www.marketahead.com', 1)
-
-        return redirect(url, code=301)
