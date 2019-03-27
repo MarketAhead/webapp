@@ -76,7 +76,10 @@ def get_price(ticker, time_res):
 	else:
 		data = get_stock(ticker, time_res)
 
-	print("Got Data!")
+	#Exit
+	if data is None:
+		return None
+
 	data['date'] = pd.to_datetime(data.index)  
 	data.set_index('date',drop=False)
 
