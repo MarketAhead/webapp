@@ -35,9 +35,7 @@ def get_home():
     keylist = []
     keylist.extend(iter(home.keys())) 
     random.shuffle(keylist)
-    print('keylist', keylist)
 
-    
     for index, key in enumerate(keylist):
         ticker = key
         card = get_card(ticker, home[key], LOGO+ticker+'.png')

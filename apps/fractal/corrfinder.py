@@ -30,8 +30,10 @@ def get_nonoverlap_days(dates, set_date, max_window):
 	while n < len(dates) and len(top_corr_dates)<10:
 
 		for top_corr_date in top_corr_dates:
-			# print('corr',top_corr_date,'vs set ', set_date)
-			if abs(np.busday_count(top_corr_date, dates[n])) < max_window:
+
+			#Exclude overlapping dates and dates that exceed the set_date
+			if abs(np.busday_count(top_corr_date, dates[n])) < max_window or dates[n] > set_date:
+
 				flag = 0
 				break
 			else:
@@ -68,12 +70,7 @@ def get_plot_dates(data, column_name, set_date, win, time_res):
 
 	all_dates = sorted_data.index.tolist()
 
-	if time_res == 'D':
-		dates = get_nonoverlap_days(all_dates, set_date, max_window)
-	if time_res == 'W':
-		dates = get_nonoverlap_days(all_dates, set_date, max_window)
-	if time_res == 'M':
-		dates = get_nonoverlap_days(all_dates, set_date, max_window)
+	dates = get_nonoverlap_days(all_dates, set_date, max_window)
 
 	top_dates = sorted_data[sorted_data['date'].isin(dates)]
 	     

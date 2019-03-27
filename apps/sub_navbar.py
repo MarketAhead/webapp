@@ -12,6 +12,7 @@ LOGO = 'https://res.cloudinary.com/marketahead/image/upload/c_scale,h_100,q_80/L
 def get_sub_navbar(ticker):
 
     logo = '' 
+    url = ticker
     ticker = ticker.replace('%5E', '')
     ticker = ticker.replace('^', '')
 
@@ -46,10 +47,10 @@ def get_sub_navbar(ticker):
 
                 dbc.Container(
                         [
-                        dcc.Link(dbc.Button("Economic Data", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/c/"+ticker),
-                        dcc.Link(dbc.Button("Performance", color="secondary", outline=True, className="mr-2 full-width", id="performance"), href="/p/"+ticker),
-                        dcc.Link(dbc.Button("Fractals", color="secondary", outline=True, className="mr-2 full-width", id="flashback"), href="/f/"+ticker),
-                        dcc.Link(dbc.Button("Trends", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/g/"+ticker),
+                        dcc.Link(dbc.Button("Economic Data", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/c/"+url),
+                        dcc.Link(dbc.Button("Performance", color="secondary", outline=True, className="mr-2 full-width", id="performance"), href="/p/"+url),
+                        dcc.Link(dbc.Button("Fractals", color="secondary", outline=True, className="mr-2 full-width", id="flashback"), href="/f/"+url),
+                        dcc.Link(dbc.Button("Trends", color="secondary", outline=True, className="mr-2 full-width", id="correlation"), href="/g/"+url),
                         ], className="mb-3 text-center")
                 ])
 
