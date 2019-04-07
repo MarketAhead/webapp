@@ -20,6 +20,9 @@ def get_sub_navbar(ticker):
     if ticker in crypto_tickers.keys():
         if ticker != crypto_tickers[ticker]:
             title = crypto_tickers[ticker] + ' - ' + ticker
+        #EOS is EOS, prevents repeating
+        else:
+            title = ticker
 
         logo = CRYPTO_LOGO+ticker+'.png'
 

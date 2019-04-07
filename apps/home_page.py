@@ -2,7 +2,6 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 import random
-import os
 
 from app import app,cache
 from apps.home.home_items import home
