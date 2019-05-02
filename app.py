@@ -6,7 +6,7 @@ from flask import request, redirect
 
 from urllib.parse import urlparse, urlunparse
 
-external_stylesheets = [dbc.themes.COSMO]
+external_stylesheets = [dbc.themes.BOOTSTRAP, 'https://cdn.jsdelivr.net/npm/shards-ui@2.1.0/dist/css/shards.min.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, static_folder='static', 
            meta_tags=[
